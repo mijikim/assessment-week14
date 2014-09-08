@@ -1,0 +1,29 @@
+<h1>Add a subscription to <%= full_name(@patient) %></h1>
+<% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
+<%= form_for [@patient, @prescription], html: {class: "presc-form"} do |f| %>
+  <div>
+    <%= f.label "Medication" %>
+    <%= f.select :medication_id, Medication.all.collect {|m| [m.name, m.id] }, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :dosage %>
+    <%= f.text_field :dosage, placeholder: "ex. 4ml or 3 pills" %>
+  </div>
+  <div>
+    <%= f.label :schedule %>
+    <%= f.text_field :schedule, placeholder: "ex. every 4 hours" %>
+  </div>
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, autfocus: true %>
+  </div>
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date, autfocus: true %>
+  </div>
+  <div>
+    <%= f.submit "Create Prescription" %>
+  </div>
+<% end %>

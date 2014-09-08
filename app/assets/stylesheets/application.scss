@@ -94,3 +94,35 @@ main {
     }
   }
 }
+
+#new_presc {
+//  display: inline-block;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.errors {
+  color: maroon;
+  margin-bottom: 1em;
+}
+
+.presc-form {
+  width: 22em;
+  border: 1px solid #ccc;
+  padding: 2em;
+  margin: 2em auto;
+  background: #efefef;
+
+  > div {
+    padding: .3em 0;
+  }
+
+  label {
+    display: inline-block;
+    width: 6em;
+  }
+
+  input[type=submit] {
+    margin-left: 6.3em;
+  }
+}
