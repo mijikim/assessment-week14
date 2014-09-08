@@ -1,11 +1,16 @@
 <h1>Add a subscription to <%= full_name(@patient) %></h1>
-<% if flash[:error] %>
-  <%= flash[:error] %>
-  <% end %>
+<div class="errors">
+<% if @prescription.errors.any? %>
+    <p>Your prescription could not be saved</p>
+    <% @prescription.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
+</div>
 <%= form_for [@patient, @prescription], html: {class: "presc-form"} do |f| %>
   <div>
     <%= f.label "Medication" %>
-    <%= f.select :medication_id, Medication.all.collect {|m| [m.name, m.id] }, autofocus: true %>
+    <%= f.select :medication_id, @medications.collect { |m| [m.name, m.id] }, autofocus: true %>
   </div>
   <div>
     <%= f.label :dosage %>

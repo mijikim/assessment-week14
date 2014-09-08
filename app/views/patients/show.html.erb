@@ -1,7 +1,7 @@
 <h1><%= full_name(@patient) %></h1>
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
+  <div class="flash-notice"><%= flash[:notice] %></div>
+  <% end %>
 <h2>Prescriptions</h2>
 <%= link_to "Add Prescription", new_patient_prescription_path(@patient.id), id: "new_presc" %>
 <table class="table">
