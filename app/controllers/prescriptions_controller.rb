@@ -10,6 +10,7 @@ class PrescriptionsController < ApplicationController
     @patient = Patient.find(params[:patient_id])
     @prescription = Prescription.new(allowed_params)
     @prescription.patient = @patient
+    @prescription.user = current_user
     if @prescription.save
       flash[:notice] = "Your prescription has been created"
       redirect_to patient_path(params[:patient_id])

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140908162858) do
   create_table "prescriptions", force: true do |t|
     t.integer "medication_id", null: false
     t.integer "patient_id",    null: false
+    t.integer "user_id",       null: false
     t.string  "dosage",        null: false
     t.string  "schedule",      null: false
     t.date    "start_date"
