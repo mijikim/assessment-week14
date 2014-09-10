@@ -10,7 +10,7 @@
 <%= form_for [@patient, @prescription], html: {class: "presc-form"} do |f| %>
   <div>
     <%= f.label "Medication" %>
-    <%= f.select :medication_id, @medications.collect { |m| [m.name, m.id] }, autofocus: true %>
+    <%= f.select :medication_id, @medications.collect { |m| [m.name, m.id] }, autofocus: true, prompt: "Please Choose a Medication" %>
   </div>
   <div>
     <%= f.label :dosage %>
